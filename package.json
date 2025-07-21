@@ -11,7 +11,8 @@
     "appium-uiautomator2-driver": "^3.9.3"
   },
   "scripts": {
-    "test": "wdio run ./wdio.conf.js"
+    "test": "wdio run ./wdio.conf.js",
+    "test:ios": "wdio run ./wdio.ios.conf.js"
   },
   "dependencies": {
     "allure-commandline": "^2.32.0"
