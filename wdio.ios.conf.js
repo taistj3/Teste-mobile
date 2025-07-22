@@ -12,6 +12,19 @@ export const config = {
     specs: [
         './test/specs/**/*.js'
     ],
+
+    suite: {
+        login: [
+            './test/specs/login.teste.js'
+        ],
+        search: [
+            './test/specs/search.test.js'
+        ],
+        product: [
+            './test/specs/product.test.js'
+        ]
+    },
+
     maxInstances: 1,
 
     capabilities: [
@@ -56,11 +69,15 @@ export const config = {
         timeout: 60000
     },
 
-
-}
-
-/*afterTest: async function(test, context, { error, result, duration, passed, retries }) {
-    if (test) {
+    afterTest: async function (test, context, { error, result, duration, passed, retries }) {
         await driver.takeScreenshot();
+        await driver.execute('mobile: terminateApp', { bundleId: 'br.com.lojaebac' });
+    },
+
+    beforeTest: async function () {
+        let state = await driver.queryAppState('br.com.lojaebac');
+        if (state !== 4) {
+            await driver.execute('mobile: LaunchApp', { bundleId: 'br.com.lojaebac' });
+        }
     }
-*/
+}

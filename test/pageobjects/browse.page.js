@@ -1,17 +1,16 @@
 import { $ } from '@wdio/globals'
 
-class HomePage {
-
-    async openMenu(menu){
-        await $(`id=tab-${menu}`).click()
-    };
-
-    async search() {
-        $(`-ios predicate sting name ENDSWITH = "Search Products" `).click()
-    };
+class BrowsePage {
+    
+    get searchInput() {
+        return $('-ios predicate string name == "searchInput"');
+    }
+    get products() {
+        return $('-ios predicate string name == "productDetails"');
+    }
 }
   
-export default new HomePage()
+export default new BrowsePage()
 
   /*  get inputUsername () {
         return $('#username');
