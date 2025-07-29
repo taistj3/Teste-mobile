@@ -4,10 +4,10 @@ import browsePage from '../pageobjects/browse.page.js'
 import productPage from '../pageobjects/product.page.js'
 
 describe('Product Details - IOS', () => {
-    it.only('Deve verificar produtos', async () => {
+    it('Deve verificar produtos', async () => {
         await homePage.search();
         await browsePage.searchInput.setValue('In');
-        await(await browsePage.products.at(0)).click();
+        await (await browsePage.products).at(0).click();
         expect(productPage.getProductTitle('Ingrid ').toBeDisplayed());
 })
 })

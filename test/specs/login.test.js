@@ -5,14 +5,14 @@ import homePage from '../pageobjects/home.page.js'
 import cadastroPage from '../pageobjects/cadastro.page.js'
 
 describe('Login - Android e IOS', () => {
-    it.only('Deve logar com credenciais válidas', async () => {
+    it('Deve logar com credenciais válidas', async () => {
         let profileTab = driver.isAndroid ? 'profile' : 'Account'
         await homePage.openMenu(profileTab)
         await loginPage.login('cliente@ebac.art.br', 'GD*peToHNJ1#c$sgk08EaYJQ')
         await homePage.openMenu(profileTab)
         // const profileElement = await profilePage.profileName('Cliente EBAC')
         //expect(await profileElement.isDisplayed()).toBe(true) 
-        expect(await profilePage.profileName('Cliente EBAC').isDisplayed()).toBe(true);
+        expect(await profilePage.profileName('EBAC Cliente').isDisplayed()).toBe(true);
     })
 
     it('Deve preencher cadastro com sucesso', async () => {
