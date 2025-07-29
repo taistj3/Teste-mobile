@@ -1,0 +1,38 @@
+name: EBAC CI Mobile
+
+# Este workflow será executado quando houver um push na branch 'ci'
+on:
+  push:
+    branches: [ ci ]
+
+  # Também permite executar esse workflow manualmente na aba "Actions" do GitHub
+  workflow_dispatch:
+
+# Um workflow é composto por um ou mais jobs que podem rodar em sequência ou em paralelo
+jobs:
+  # Este workflow contém um único job chamado "test"
+  test:
+    # Define o tipo de ambiente (máquina) onde o job será executado
+    runs-on: ubuntu-latest
+
+    # Etapas que serão executadas dentro deste job
+    steps:
+          # Faz o checkout do repositório (baixa o código da branch atual)
+      - uses: actions/checkout@v4
+          # Configura o Node.js na versão 21 no ambiente de execução
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '21'
+          # Instala as dependências do projeto (lê o package.json e executa npm install)
+      - name: Install Dependencies
+        run: npm i
+          # Executa os testes definidos no projeto (comando npm test)
+      - name: Run Tests
+        run: npm t
+          # Publica o relatório de testes (ex: Allure) no GitHub Pages, mesmo que os testes falhem
+      - name: Publish Report
+        uses: peaceiris/actions-gh-pages@v3
+        if: always() # Garante que esta etapa será executada mesmo se as anteriores falharem
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./allure-report # Caminho da pasta onde está o relatório
