@@ -1,16 +1,17 @@
-import { $ } from '@wdio/globals'
+import { $, $$ } from '@wdio/globals'
 
 class BrowsePage {
-    
-    get searchInput() {
-        return $('-ios predicate string name == "searchInput"');
+
+    get searchInput(){
+        return $(`-ios predicate string:name == "searchInput"`)
     }
-    get products() {
-        return $('-ios predicate string name == "productDetails"');
+
+    get products(){
+        return $$(`-ios predicate string:name == "productDetails"`)
     }
 }
-  
-export default new BrowsePage()
+
+export default new BrowsePage();
 
   /*  get inputUsername () {
         return $('#username');

@@ -1,9 +1,7 @@
 import { expect, driver } from '@wdio/globals'
-import loginPage from '../pageobjects/login.page.js'
-import profilePage from '../pageobjects/profile.page.js'
 import homePage from '../pageobjects/home.page.js'
-import cadastroPage from '../pageobjects/cadastro.page.js'
 import browsePage from '../pageobjects/browse.page.js'
+import productPage from '../pageobjects/product.page.js'
 
 describe('Product Details - IOS', () => {
     it.only('Deve verificar produtos', async () => {

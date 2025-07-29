@@ -2,28 +2,28 @@ import { $ } from '@wdio/globals'
 
 class CadastroPage {
 
-    get firstName (){
+    get firstName() {
         return $('id=firstName')
     }
-    get lastName (){
+    get lastName() {
         return $('id=lastName')
     }
-    get phoneNumber (){
+    get phoneNumber() {
         return $('id=phone')
     }
-    get emailAddress (){
+    get emailAddress() {
         return $('id=email')
     }
-    get password (){
+    get password() {
         return $('id=password')
     }
-    get repassword (){
+    get repassword() {
         return $('id=repassword')
     }
-    get btnCreate (){
+    get btnCreate() {
         return $('id=create')
     }
-    async cadastro (firstName, lastName, phoneNumber, emailAddress, password, repassword){
+    async cadastro(firstName, lastName, phoneNumber, emailAddress, password, repassword) {
         await this.firstName.setValue(firstName);
         await this.lastName.setValue(lastName);
         await this.phoneNumber.setValue(phoneNumber);
@@ -31,7 +31,7 @@ class CadastroPage {
         await this.password.setValue(password);
         await this.repassword.setValue(repassword);
         await this.btnCreate.click()
-}
+    }
 }
 
 export default new CadastroPage();
