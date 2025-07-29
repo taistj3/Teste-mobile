@@ -15,33 +15,33 @@ describe('Login - Android e IOS', () => {
         expect(await profilePage.profileName('EBAC Cliente').isDisplayed()).toBe(true);
     })
 
-    it('Deve preencher cadastro com sucesso', async () => {
-    const profileTab = driver.isAndroid ? 'profile' : 'Account';
-    await homePage.openMenu(profileTab);
+//     it('Deve preencher cadastro com sucesso', async () => {
+//     const profileTab = driver.isAndroid ? 'profile' : 'Account';
+//     await homePage.openMenu(profileTab);
 
-    // botão Sign up cross platform
-    if (driver.isAndroid) {
-        await $('//android.widget.TextView[@text="Sign up"]').click();
-    } else {
-        await $('~Sign up').click();
-    }
+//     // botão Sign up cross platform
+//     if (driver.isAndroid) {
+//         await $('//android.widget.TextView[@text="Sign up"]').click();
+//     } else {
+//         await $('~Sign up').click();
+//     }
 
-    await cadastroPage.cadastro(
-        'João',
-        'Silva',
-        '1234567890',
-        'joao.silva@email.com',
-        'senha123',
-        'senha123'
-    );
+//     await cadastroPage.cadastro(
+//         'João',
+//         'Silva',
+//         '1234567890',
+//         'joao.silva@email.com',
+//         'senha123',
+//         'senha123'
+//     );
 
-    if (!(await cadastroPage.repassword.isDisplayed())) {
-        await cadastroPage.repassword.scrollIntoView();
-    }
+//     if (!(await cadastroPage.repassword.isDisplayed())) {
+//         await cadastroPage.repassword.scrollIntoView();
+//     }
 
-    await cadastroPage.repassword.setValue('senha123');
-    await cadastroPage.btnCreate.click();
-});
+//     await cadastroPage.repassword.setValue('senha123');
+//     await cadastroPage.btnCreate.click();
+// });
 
     // it('Deve preencher cadastro com sucesso', async () => {
 

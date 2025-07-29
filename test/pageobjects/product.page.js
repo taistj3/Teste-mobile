@@ -3,7 +3,7 @@ import {$, $$} from '@wdio/globals'
 class ProductPage {
 
     async getProductTitle(name) {
-        return $$(`~${name}`)
+        return $(`~${name}`)
     }
 }
 

@@ -1,17 +1,14 @@
 import { $, driver } from '@wdio/globals'
 
 class LoginPage {
-
-    get email() {
+    get email (){
         return $('id:email')
     }
-    get password() {
-        if (driver.isAndroid) {
+    get password (){
+        if(driver.isAndroid)
             return $('android=new UiSelector().text("Password")')
-        }
-        if (driver.isIOS) {
-            return $('~Password')
-        }
+        if(driver.isIOS)
+            return $('-ios predicate string: name == "Password"')
     }
     get btnLogin() {
         if (driver.isAndroid)
