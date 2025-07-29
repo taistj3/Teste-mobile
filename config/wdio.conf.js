@@ -1,5 +1,6 @@
 import { localConf } from './local.conf.js';
 import { sauceConf } from './sauce.conf.js';
+import { bsConf } from './bs.conf.js';
 
 import 'dotenv/config';
 
@@ -10,6 +11,9 @@ function getConfig() {
 
         case 'saucelabs':
             return sauceConf;
+
+        case 'browserstack':
+            return bsConf;
     }
 }
 
