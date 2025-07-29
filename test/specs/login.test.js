@@ -10,9 +10,7 @@ describe('Login - Android e IOS', () => {
         await homePage.openMenu(profileTab)
         await loginPage.login('cliente@ebac.art.br', 'GD*peToHNJ1#c$sgk08EaYJQ')
         await homePage.openMenu(profileTab)
-        // const profileElement = await profilePage.profileName('Cliente EBAC')
-        //expect(await profileElement.isDisplayed()).toBe(true) 
-        expect(await profilePage.profileName('EBAC Cliente').isDisplayed()).toBe(true);
+        expect((await profilePage.profileName('EBAC Cliente')).isDisplayed()).toBeTruthy()
     })
 
 //     it('Deve preencher cadastro com sucesso', async () => {
