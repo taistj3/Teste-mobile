@@ -1,7 +1,7 @@
 import {specsConf} from'./specs.conf.js';
 import {suitesConf} from'./suites.conf.js';
 import {hooksConf} from'./hooks.conf.js';
-import {reportersConf} from'./reporters.confjs';
+import {reportersConf} from'./reporters.conf.js';
 
 export let generalConf = {
     maxInstances: 1,
