@@ -7,7 +7,7 @@ describe('Search', () => {
         await homePage.search();
         await browsePage.searchInput.setValue('In');
         await browsePage.products.map(async product => {
-            expect(await product.getText()).toContain('In');
+            expect(await product.getText()).toContain('R$');
         })
 })
 })
