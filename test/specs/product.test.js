@@ -6,14 +6,11 @@ import productPage from '../pageobjects/product.page.js'
 describe('Product Details - IOS', () => {
     it('Deve verificar produtos', async () => {
         await homePage.search();
-        await browsePage.searchInput.setValue('In');
-
+        await browsePage.searchInput.setValue('Ca');
         const products = await browsePage.products;
         expect(products.length).toBeGreaterThan(0); // garante que achou pelo menos um produto
-
-        await products[0].click();
-
-        expect(await productPage.getProductTitle('Ingrid ')).toBeDisplayed();
+        await products[1].click();
+        expect(await productPage.getProductTitle('Camiseta ')).toBeDisplayed();
     });
 });
 // describe('Product Details - IOS', () => {
